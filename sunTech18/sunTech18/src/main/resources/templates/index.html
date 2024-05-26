@@ -1,0 +1,39 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+crud operation of data base .
+
+for(i : students){
+
+}
+-->
+
+<button ><a th:href="@{/students/new}">Add students</a> </button>
+
+<table>
+    <tr>
+        <th>Name </th>
+        <th>Email </th>
+        <th> City </th>
+        <th>Actions </th>
+    </tr>
+    <tr th:each="student:${students}">
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.city}"></td>
+        <td ><button><a th:href="@{/students/update/{id}(id=${student.id})}">update</a></button>
+            <button class="del"><a th:href="@{/students/{id}(id=${student.id})}">Delete</a></button>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+
